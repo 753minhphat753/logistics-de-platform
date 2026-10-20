@@ -441,7 +441,7 @@ To be answered and logged as the project progresses. Each lists the version wher
 ## 14. Requirement-to-version map
 
 - **V1 (Weeks 3–4):** FR-1, FR-5, NFR-1, NFR-8 (basic); data generator for Source 1
-- **V2 (Weeks 5–6):** FR-2, FR-3, FR-6; ERD for the star schema; generators for Sources 3 and 4
+- **V2 (Weeks 5–6):** FR-2, FR-3, FR-6; ERD for the star schema; generator for Source 3 (Driver Schedule)
 - **V3 (Weeks 7–8):** FR-7, FR-8 (initial), FR-10, FR-11; NFR-5 timing review
 - **V4 (Weeks 9–10):** FR-8 (complete), FR-9
 - **V5 (Weeks 11–12):** FR-14, NFR-3

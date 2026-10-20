@@ -110,7 +110,18 @@ The transformation and aggregation code in V7 will be written in a way that is c
 
 ---
 
-## 7. References
+## 7. Revisit when
+
+This decision should be reconsidered if any of the following occurs:
+
+- A stakeholder requirement appears that needs GPS-based alerts in under 1 minute (e.g. instant speeding or off-route alerts).
+- Micro-batch processing time exceeds the batch window for 3 consecutive runs (the job can no longer keep up, so lag accumulates).
+- More than X% of GPS events arrive late enough to force reprocessing of closed windows (set X after measuring the real late-arrival rate in V1/V7).
+- The GPS source changes from files to a push-based producer (events already arrive through a broker).
+
+---
+
+## 8. References
 
 - `docs/architecture/v0-requirements.md` — FR-4, NFR-2, NFR-6, Section 5.4, Section 8
 - `README.md` — Data Sources table (Source 4: GPS / Telemetry Logs, micro-batch 5–15 min)

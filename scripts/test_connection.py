@@ -36,7 +36,7 @@ cur.execute(
     """
     SELECT schema_name
     FROM information_schema.schemata
-    WHERE schema_name IN ('raw', 'staging', 'warehouse')
+    WHERE schema_name IN ('raw', 'staging', 'warehouse', 'source')
     ORDER BY schema_name;
     """
 )
@@ -46,7 +46,7 @@ print("[OK] Ket noi PostgreSQL thanh cong!")
 print(f"   Host : {os.getenv('POSTGRES_HOST', 'localhost')}:{os.getenv('POSTGRES_PORT', 5432)}")
 print(f"   DB   : {os.getenv('POSTGRES_DB', 'logistics')}")
 
-expected = {"raw", "staging", "warehouse"}
+expected = {"raw", "staging", "warehouse", "source"}
 found = set(schemas)
 
 if found == expected:

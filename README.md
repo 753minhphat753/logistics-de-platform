@@ -199,6 +199,19 @@ pip install -r requirements.txt
 # 4. Configure environment variables
 copy .env.example .env
 # Edit .env and fill in POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD
+
+# 5. Initialize database schemas & tables
+Get-Content scripts/init_db.sql | docker exec -i logistics-postgres psql -U postgres -d logistics
+Get-Content scripts/sql/02_source_tables.sql | docker exec -i logistics-postgres psql -U postgres -d logistics
+
+# 6. Generate synthetic source data
+# Day 5 (clean baseline):
+python scripts/generate_source_data.py --reset --no-defects
+# Day 6 (with intentional defects for DQ testing):
+python scripts/generate_source_data.py --reset
+
+# 7. Validate and profile source data
+Get-Content scripts/sql/10_source_profiling.sql | docker exec -i logistics-postgres psql -U postgres -d logistics
 ```
 
 > **Docker setup coming in V8.** The steps above reflect the current development environment for V1.

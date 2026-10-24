@@ -1,0 +1,42 @@
+{
+  "seed": 42,
+  "n_orders": 100000,
+  "n_customers": 20000,
+  "defects": {
+    "DELIVERED_NO_TIME": {
+      "description": "status = DELIVERED but delivered_time is NULL",
+      "rate": 0.02,
+      "count": 2000
+    },
+    "DELIVERED_BEFORE_PICKUP": {
+      "description": "delivered_time earlier than pickup_time",
+      "rate": 0.01,
+      "count": 1000
+    },
+    "STATUS_TIME_MISMATCH": {
+      "description": "status is FAILED/CANCELLED but delivered_time is set",
+      "rate": 0.005,
+      "count": 500
+    },
+    "DRIVER_MISSING": {
+      "description": "status = DELIVERED but driver_id is NULL",
+      "rate": 0.01,
+      "count": 1000
+    },
+    "FEE_MISSING": {
+      "description": "delivery_fee is NULL",
+      "rate": 0.02,
+      "count": 2000
+    },
+    "LATE_UPDATED": {
+      "description": "updated_at is 1-5 days after delivered_time (late update)",
+      "rate": 0.03,
+      "count": 3000
+    },
+    "DUPLICATE_CUSTOMER": {
+      "description": "customer shares phone and name with another customer id",
+      "rate": 0.01,
+      "count": 200
+    }
+  }
+}
